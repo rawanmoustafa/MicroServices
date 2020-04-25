@@ -27,31 +27,31 @@ def home():
 def predict():
     """Performs an sklearn prediction
 
-    input looks like:
-            {
-    "CHAS":{
-      "0":0
-    },
-    "RM":{
-      "0":6.575
-    },
-    "TAX":{
-      "0":296.0
-    },
-    "PTRATIO":{
-       "0":15.3
-    },
-    "B":{
-       "0":396.9
-    },
-    "LSTAT":{
-       "0":4.98
-    }
+        input looks like:
+        {
+        "CHAS":{
+        "0":0
+        },
+        "RM":{
+        "0":6.575
+        },
+        "TAX":{
+        "0":296.0
+        },
+        "PTRATIO":{
+        "0":15.3
+        },
+        "B":{
+        "0":396.9
+        },
+        "LSTAT":{
+        "0":4.98
+        }
 
-    result looks like:
-    { "prediction": [ <val> ] }
+        result looks like:
+        { "prediction": [ <val> ] }
 
-    """
+        """
 
     # Logging the input payload
     json_payload = request.json
@@ -63,7 +63,6 @@ def predict():
     # get an output prediction from the pretrained model, clf
     prediction = list(clf.predict(scaled_payload))
     # TO DO:  Log the output prediction value
-    LOG.info(f"Output prediction: {prediction}")
     return jsonify({'prediction': prediction})
 
 if __name__ == "__main__":
